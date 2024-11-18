@@ -121,16 +121,16 @@ export const COLLECTION_QUERY = q('').grab({
 | CMS Settings Queries
 |--------------------------------------------------------------------------
 */
-export const FONTS_QUERY = q('*')
-  .filter("_type == 'typography'")
-  .grab({
-    body: q('body').grab(FONT_FRAGMENT),
-    extra: q('extra').grab(FONT_FRAGMENT),
-    heading: q('heading').grab(FONT_FRAGMENT),
-  })
-  .order('_createdAt asc')
-  .slice(0)
-  .nullable();
+// export const FONTS_QUERY = q('*')
+//   .filter("_type == 'typography'")
+//   .grab({
+//     body: q('body').grab(FONT_FRAGMENT),
+//     extra: q('extra').grab(FONT_FRAGMENT),
+//     heading: q('heading').grab(FONT_FRAGMENT),
+//   })
+//   .order('_createdAt asc')
+//   .slice(0)
+//   .nullable();
 
 export const DEFAULT_COLOR_SCHEME_QUERY = q('*')
   .filter("_type == 'colorScheme' && default == true")
@@ -187,7 +187,7 @@ export const ROOT_QUERY = q('')
   .grab({
     _type: ['"root"', q.literal('root')],
     defaultColorScheme: DEFAULT_COLOR_SCHEME_QUERY,
-    fonts: FONTS_QUERY,
+    // fonts: FONTS_QUERY,
     footer: FOOTER_QUERY,
     header: HEADER_QUERY,
     settings: SETTINGS_QUERY,

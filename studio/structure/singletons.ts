@@ -42,11 +42,11 @@ export const SINGLETONS: {
     title: 'Theme Content',
     icon: EarthGlobeIcon,
   },
-  typography: {
-    id: 'typography',
-    _type: 'typography',
-    title: 'Typography',
-  },
+  // typography: {
+  //   id: 'typography',
+  //   _type: 'typography',
+  //   title: 'Typography',
+  // },
   settings: {
     id: 'settings',
     _type: 'settings',
