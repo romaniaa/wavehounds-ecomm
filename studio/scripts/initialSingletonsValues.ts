@@ -113,7 +113,7 @@ export const initialSingletonsValues = {
     },
   },
   settings: {
-    siteName: 'Fluid',
+    siteName: 'Wavehounds',
     grid: {
       horizontalSpace: 20,
       verticalSpace: 20,
@@ -242,7 +242,7 @@ export const initialSingletonsValues = {
           {
             _key: DEFAULT_LOCALE.language.toLowerCase(),
             _type: 'internationalizedArrayStringValue',
-            value: '© 2024 Fluid, Inc. All rights reserved.',
+            value: '© 2024 Wavehounds, Inc. All rights reserved.',
           },
         ],
         settings: {

@@ -37,7 +37,7 @@ const SANITY_STUDIO_PRODUCTION_URL = isDev
 
 export default defineConfig({
   name: 'default',
-  title: 'Fluid',
+  title: 'Wavehounds',
   projectId,
   dataset,
   plugins: [

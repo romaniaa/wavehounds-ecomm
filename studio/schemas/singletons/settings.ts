@@ -51,7 +51,7 @@ export default defineType({
       title: 'Site name',
       type: 'string',
       group: 'brand',
-      initialValue: 'Fluid',
+      initialValue: 'Wavehounds',
     }),
     defineField({
       name: 'siteDescription',
