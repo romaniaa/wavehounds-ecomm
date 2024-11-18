@@ -1,5 +1,4 @@
 import {useRootLoaderData} from '~/root';
-
 import {CmsSection} from '../CmsSection';
 
 export function Footer() {

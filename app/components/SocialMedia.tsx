@@ -9,11 +9,11 @@ import {IconButton} from './ui/Button';
 
 export function SocialMediaButtons() {
   return (
-    <>
+    <div className={'flex flex-row gap-1'}>
       {socials.map((social) => (
         <SocialButton key={social} media={social} />
       ))}
-    </>
+    </div>
   );
 }
 

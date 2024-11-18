@@ -22,12 +22,13 @@ export function FooterSocialLinksOnly(
   });
 
   return (
-    <div className="container flex flex-col items-center justify-center gap-5">
+    <div className="container flex flex-row items-center justify-between gap-5">
       <style dangerouslySetInnerHTML={{__html: colorsCssVars}} />
-      <div className="flex flex-wrap items-center justify-center gap-1">
+      <div className="flex flex-col flex-wrap items-left justify-start gap-5">
         <SocialMediaButtons />
+        <CountrySelector />
       </div>
-      <CountrySelector />
+      
       <p className="mt-4">{data.copyright}</p>
     </div>
   );
