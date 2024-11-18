@@ -196,6 +196,7 @@ export default function App() {
         <Fonts />
         <Links />
         <CssVars />
+        <link rel="stylesheet" href="https://use.typekit.net/emc8zvi.css"></link>
       </head>
       <body className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
         <Analytics.Provider

@@ -11,7 +11,7 @@ const NavigationMenu = forwardRef<
 >(({children, className, ...props}, ref) => (
   <NavigationMenuPrimitive.Root
     className={cn(
-      'relative z-10 flex max-w-max flex-1 items-center justify-center',
+      'relative z-10 flex max-w-max flex-1 items-center justify-center mr-10',
       className,
     )}
     ref={ref}
@@ -29,7 +29,7 @@ const NavigationMenuList = forwardRef<
 >(({className, ...props}, ref) => (
   <NavigationMenuPrimitive.List
     className={cn(
-      'group flex flex-1 list-none items-center justify-center space-x-1',
+      'group flex flex-1 list-none items-center justify-center space-x-[15px]',
       className,
     )}
     ref={ref}
@@ -41,7 +41,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
 const NavigationMenuItem = NavigationMenuPrimitive.Item;
 
 const navigationMenuTriggerStyle = cva(
-  'group inline-flex select-none h-8 w-max items-center justify-center rounded-[--button-border-corner-radius] px-2 py-2 text-sm font-medium transition-colors hover:text-accent-foreground hover:active:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'group inline-flex select-none h-8 w-max items-center justify-center rounded-[--button-border-corner-radius] px-2 py-2 font-extra text-3xl font-light transition-colors hover:text-accent-foreground hover:active:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
 );
 
 const NavigationMenuTrigger = forwardRef<

@@ -20,7 +20,7 @@ export default {
       fontFamily: {
         heading: 'var(--heading-font-family)',
         body: 'var(--heading-body-family)',
-        extra: 'var(--heading-extra-family)',
+        extra: 'var(--extra-font-family)',
       },
       colors: {
         background: 'rgb(var(--background) / <alpha-value>)',

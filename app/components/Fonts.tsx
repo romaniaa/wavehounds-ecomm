@@ -10,8 +10,14 @@ import {useRootLoaderData} from '~/root';
 type FontsQuery = InferType<typeof FONTS_QUERY>;
 type FontAssetsFragment = InferType<typeof FONT_CATEGORY_FRAGMENT.fontAssets>;
 
-const defaultFontFamily =
-  '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Ubuntu, Helvetica Neue, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;';
+const defaultSerifFontFamily =
+  '"scotch-deck-compressed", serif;';
+
+const defaultBaseFontFamily =
+  '"barlow-semi-condensed", sans-serif;';
+
+const defaultSansFontFamily =
+  '"nure-variable", sans-serif;';
 
 export function Fonts() {
   const {sanityRoot} = useRootLoaderData();
@@ -95,7 +101,7 @@ function generateCssFontVariables({fontsData}: {fontsData: FontsQuery}) {
     capitalize?: boolean | null;
     categoryName?: string;
     fontName?: string;
-    fontType?: string;
+    // fontType?: string;
     letterSpacing?: null | number;
     lineHeight?: null | number;
   }> = [];
@@ -104,8 +110,8 @@ function generateCssFontVariables({fontsData}: {fontsData: FontsQuery}) {
     baseSize: fontsData?.heading.baseSize,
     capitalize: fontsData?.heading.capitalize,
     categoryName: 'heading',
-    fontName: fontsData?.heading.font?.[0]?.fontName || defaultFontFamily,
-    fontType: fontsData?.heading.font?.[0]?.fontType || 'unset',
+    fontName: fontsData?.heading.font?.[0]?.fontName || defaultSerifFontFamily,
+    // fontType: fontsData?.heading.font?.[0]?.fontType || 'unset',
     letterSpacing: fontsData?.heading.letterSpacing,
     lineHeight: fontsData?.heading.lineHeight,
     ...fontsData?.heading.font?.[0],
@@ -115,8 +121,8 @@ function generateCssFontVariables({fontsData}: {fontsData: FontsQuery}) {
     baseSize: fontsData?.body.baseSize,
     capitalize: fontsData?.body.capitalize,
     categoryName: 'body',
-    fontName: fontsData?.body.font?.[0]?.fontName || defaultFontFamily,
-    fontType: fontsData?.body.font?.[0]?.fontType || 'unset',
+    fontName: fontsData?.body.font?.[0]?.fontName || defaultBaseFontFamily,
+    // fontType: fontsData?.body.font?.[0]?.fontType || 'unset',
     letterSpacing: fontsData?.body.letterSpacing,
     lineHeight: fontsData?.body.lineHeight,
     ...fontsData?.body.font?.[0],
@@ -126,8 +132,8 @@ function generateCssFontVariables({fontsData}: {fontsData: FontsQuery}) {
     baseSize: fontsData?.extra.baseSize,
     capitalize: fontsData?.extra.capitalize,
     categoryName: 'extra',
-    fontName: fontsData?.extra.font?.[0]?.fontName || defaultFontFamily,
-    fontType: fontsData?.extra.font?.[0]?.fontType || 'unset',
+    fontName: fontsData?.extra.font?.[0]?.fontName || defaultSansFontFamily,
+    // fontType: fontsData?.extra.font?.[0]?.fontType || 'unset',
     letterSpacing: fontsData?.extra.letterSpacing,
     lineHeight: fontsData?.extra.lineHeight,
     ...fontsData?.extra.font?.[0],
@@ -148,7 +154,7 @@ function generateCssFontVariables({fontsData}: {fontsData: FontsQuery}) {
         --${fontCategory.categoryName}-font-family: ${
           fontCategory.fontName ? fontCategory.fontName : 'unset'
         };
-        --${fontCategory.categoryName}-font-type: ${fontCategory.fontType};
+        --${fontCategory.categoryName}
         --${fontCategory.categoryName}-line-height: ${
           fontCategory.lineHeight ? fontCategory.lineHeight : 'unset'
         };

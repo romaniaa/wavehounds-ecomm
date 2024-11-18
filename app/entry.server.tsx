@@ -58,11 +58,12 @@ export const createCspHeaders = () => {
   // Default CSP headers, will be used as a base for all environments
   const defaultsCSPHeaders = {
     connectSrc: ['*', "'self'"],
-    fontSrc: ['*.sanity.io', "'self'", 'localhost:*'],
+    fontSrc: ['*.sanity.io', "'self'", "https://use.typekit.net", 'localhost:*'],
     frameAncestors: ['localhost:*', '*.sanity.studio'],
     frameSrc: ["'self'"],
     imgSrc: ['*.sanity.io', 'https://cdn.shopify.com', "'self'", 'localhost:*'],
     scriptSrc: ["'self'", 'localhost:*', 'https://cdn.shopify.com'],
+    styleSrc: ["'self'", "'unsafe-inline'", 'https://use.typekit.net', 'https://p.typekit.net', 'localhost:*'], 
   };
 
   // For Vercel production environment white-list vitals.vercel-insights

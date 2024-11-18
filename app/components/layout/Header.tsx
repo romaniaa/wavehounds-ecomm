@@ -53,7 +53,7 @@ export function Header() {
           </Link>
           <div className="flex items-center">
             <DesktopNavigation data={header?.menu} />
-            <AccountLink className="relative flex items-center justify-center focus:ring-primary/5" />
+            {/* <AccountLink className="relative flex items-center justify-center focus:ring-primary/5" /> */}
             <CartDrawer />
             <MobileNavigation data={header?.menu} />
           </div>
