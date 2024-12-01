@@ -21,6 +21,7 @@ import {ShopifyTitleBlock} from '../blocks/ShopifyTitleBlock';
 import {ExternalLinkAnnotation} from '../sanity/richtext/components/ExternalLinkAnnotation';
 import {InternalLinkAnnotation} from '../sanity/richtext/components/InternalLinkAnnotation';
 import {ProductForm} from './ProductForm';
+import {Link} from '@remix-run/react';
 
 export function ProductDetails({
   data,
@@ -68,14 +69,33 @@ export function ProductDetails({
     }),
     [],
   );
-
+  
   return (
-    <div className="container space-y-4 lg:max-w-none lg:px-0">
+    <div className="container space-y-4 lg:max-w-none lg:px-0 h-full w-full flex flex-col justify-center">
+      {data._type === "featuredProductSection" && data.product?.store && (
+        <div className="flex flex-row justify-between items-start w-full">
+          <h2 className="lg:text-8xl text-xl">{data.product.store.title}</h2>
+          <div className="text-3xl">${data.product.store.firstVariant?.store.price}</div>
+        </div>
+
+      )}
       {data.richtext && (
-        <PortableText
-          components={Components as PortableTextComponents}
-          value={data.richtext as PortableTextBlock[]}
-        />
+        <div className="w-full">
+          <PortableText
+            components={Components as PortableTextComponents}
+            value={data.richtext as PortableTextBlock[]}
+          />
+        </div>
+      )}
+       {data._type === "featuredProductSection" && data.product?.store.firstVariant && (
+        <div className="w-full mt-4">
+          <ProductForm _key={''} _type={'addToCartButton'} quantitySelector={null} shopPayButton={null} {...data.product?.store.firstVariant.store} />
+        </div>
+      )}
+      {data._type === "featuredProductSection" && data.product?.store.title && (
+        <Link to={`/products/${data.product?.store.title.toLowerCase().replace(/ /g,'-')}`}>
+          {`see more`}
+        </Link>
       )}
     </div>
   );

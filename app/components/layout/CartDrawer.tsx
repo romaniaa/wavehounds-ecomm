@@ -15,7 +15,7 @@ import {useRootLoaderData} from '~/root';
 import {useDevice} from '../../hooks/useDevice';
 import {Cart} from '../cart/Cart';
 import {IconBag} from '../icons/IconBag';
-import {iconButtonClass} from '../ui/Button';
+import {cartIconButtonClass} from '../ui/Button';
 import {
   Drawer,
   DrawerContent,
@@ -89,18 +89,18 @@ function Badge(props: {cart?: CartApiQueryFragment; count: number}) {
 
   const BadgeCounter = useMemo(
     () => (
-      <span className="relative">
+      <span className="relative flex flex-row w-auto">
         <span className="sr-only">{themeContent?.cart?.heading}</span>
-        <IconBag className="size-6" />
+        <IconBag className="size-7" />
         {count > 0 && (
           <div
             className={cx([
-              'absolute right-[-12px] top-[-4px] flex items-center justify-center',
-              'bg-foreground text-background transition-colors',
+              'relative flex flex-col w-[10px] justify-center',
+              'text-foreground transition-colors',
               'group-active:bg-accent-foreground group-active:text-accent',
-              'notouch:group-hover:bg-accent-foreground notouch:group-hover:text-accent',
-              'aspect-square h-auto min-w-[1.35rem] rounded-full p-1',
-              'text-center text-[.7rem] leading-[0] subpixel-antialiased',
+              'notouch:group-hover:text-accent-foreground',
+              '',
+              'text-center font-extra text-[1.5rem] leading-[0] subpixel-antialiased',
             ])}
           >
             <span>{count}</span>
@@ -111,7 +111,7 @@ function Badge(props: {cart?: CartApiQueryFragment; count: number}) {
     [count, themeContent?.cart?.heading],
   );
 
-  const buttonClass = cn(iconButtonClass, 'group');
+  const buttonClass = cn(cartIconButtonClass, 'group');
 
   return isHydrated ? (
     <Drawer

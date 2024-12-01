@@ -63,15 +63,15 @@ export function Header() {
   );
 }
 
-function AccountLink({className}: {className?: string}) {
-  return (
-    <IconButton asChild>
-      <Link className={className} to="/account">
-        <IconAccount className="size-6" />
-      </Link>
-    </IconButton>
-  );
-}
+// function AccountLink({className}: {className?: string}) {
+//   return (
+//     <IconButton asChild>
+//       <Link className={className} to="/account">
+//         <IconAccount className="size-6" />
+//       </Link>
+//     </IconButton>
+//   );
+// }
 
 function HeaderWrapper(props: {children: React.ReactNode}) {
   const {sanityRoot} = useRootLoaderData();

@@ -68,7 +68,7 @@ const DrawerContent = forwardRef<
     <DrawerOverlay />
     <DrawerPrimitive.Content
       className={cn(
-        'fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-3xl border bg-background lg:rounded-none',
+        'fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-3xl bg-background lg:rounded-none',
         className,
       )}
       ref={ref}

@@ -24,6 +24,7 @@ const buttonVariants = cva(
         lg: 'h-12 rounded-md px-8',
         primitive: 'h-auto p-0',
         sm: 'h-9 rounded-md px-3',
+        cart: 'h-full w-full p-[10px]',
       },
       variant: {
         default:
@@ -71,6 +72,8 @@ export interface IconButtonProps
 }
 
 export const iconButtonClass = buttonVariants({size: 'icon', variant: 'ghost'});
+
+export const cartIconButtonClass = buttonVariants({size: 'cart', variant: 'ghost'});
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ({asChild = false, className, ...props}, ref) => {

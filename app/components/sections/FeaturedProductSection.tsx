@@ -40,6 +40,8 @@ export function FeaturedProductSection(
   props: {data: FeaturedProductSectionProps} & SectionDefaultProps,
 ) {
   const aspectRatio = getAspectRatioData(props.data.mediaAspectRatio);
+  const isImageRight = props.data.imageOrientation === 'right';
+
   return (
     <div className="container">
       <AwaitFeaturedProduct
@@ -69,7 +71,7 @@ export function FeaturedProductSection(
 
           return (
             <ProductProvider data={product}>
-              <Grid>
+              <Grid isImageRight={isImageRight}>
                 <div>
                   {image && (
                     <ShopifyImage
@@ -98,12 +100,20 @@ export function FeaturedProductSection(
 function Grid({
   children,
   className,
+  isImageRight = false,
 }: {
   children: React.ReactNode;
   className?: string;
+  isImageRight?: boolean;
 }) {
   return (
-    <div className={cn('grid gap-10 lg:grid-cols-2', className)}>
+    <div
+      className={cn(
+        'grid gap-10 lg:grid-cols-2',
+        isImageRight ? 'lg:[&>:first-child]:order-last' : '',
+        className,
+      )}
+    >
       {children}
     </div>
   );

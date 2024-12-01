@@ -169,7 +169,7 @@ function ThumbnailCarousel({
   return (
     <div className="mt-3 hidden lg:block">
       <Carousel
-        className="[--slide-spacing:.5rem]"
+        className="[--slide-spacing:10px]"
         opts={{
           active: device === 'desktop' && slidesPerView < medias.length,
           containScroll: 'keepSnaps',

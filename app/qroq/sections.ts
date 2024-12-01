@@ -114,6 +114,7 @@ export const FEATURED_PRODUCT_SECTION_FRAGMENT = {
   _key: q.string().nullable(),
   _type: q.literal('featuredProductSection'),
   mediaAspectRatio: z.enum(aspectRatioValues).nullable(),
+  imageOrientation: q.string().nullable(),
   product: q('product')
     .deref()
     .grab({

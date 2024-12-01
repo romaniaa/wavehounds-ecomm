@@ -22,6 +22,19 @@ export default defineField({
       name: 'mediaAspectRatio',
     }),
     defineField({
+      name: 'imageOrientation',
+      type: 'string',
+      title: 'Image Orientation',
+      options: {
+        list: [
+          {title: 'Left', value: 'left'},
+          {title: 'Right', value: 'right'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'left',
+    }),
+    defineField({
       type: 'sectionSettings',
       name: 'settings',
     }),

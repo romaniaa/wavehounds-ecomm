@@ -192,7 +192,7 @@ const CarouselItem = React.forwardRef<
     <div
       aria-roledescription="slide"
       className={cn(
-        'min-w-0 select-none',
+        'min-w-0 select-none flex flex-col' ,
         'flex-[0_0_100%] pl-[--slide-spacing] md:flex-[0_0_var(--slide-size)]',
         className,
       )}

@@ -120,8 +120,8 @@ export function ProductCard(props: {
                 />
               </CardMedia>
             )}
-            <CardContent className="p-3 md:px-6 md:py-4">
-              <div className="overflow-hidden text-ellipsis whitespace-nowrap underline-offset-4 group-hover/card:underline md:text-lg">
+            <CardContent className="md:px-0 md:py-4 flex flex-row justify-between">
+              <div className="overflow-hidden text-ellipsis whitespace-nowrap md:text-5xl font-heading">
                 {product.title}
               </div>
               <div className={priceClass}>
@@ -132,7 +132,7 @@ export function ProductCard(props: {
                   />
                 )}
                 <ShopifyMoney
-                  className="text-sm md:text-base"
+                  className="text-2xl md:text-4xl"
                   data={firstVariant.price}
                 />
               </div>
