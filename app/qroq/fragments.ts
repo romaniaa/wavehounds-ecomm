@@ -210,6 +210,10 @@ export const SETTINGS_FRAGMENT = {
     .grab(IMAGE_FRAGMENT)
     .nullable(),
   spaceBetweenTemplateSections: q.number().nullable(),
+  cStitle: q.string().nullable(),
+  cScontent: q.string().nullable(),
+  cSimages: q.array(q.object({ asset: q.object({ url: q.string() }) })).nullable()
+
 } satisfies Selection;
 
 /*

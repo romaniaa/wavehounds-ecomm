@@ -37,6 +37,9 @@ const GROUPS = [
   {
     name: 'socialMedia',
   },
+  {
+    name: 'comingSoon',
+  },
 ];
 
 export default defineType({
@@ -351,7 +354,27 @@ export default defineType({
       type: 'url',
       group: 'socialMedia',
     }),
+    defineField({ 
+      name: 'cStitle', 
+      title: 'Coming Soon Title', 
+      type: 'string', 
+      group: 'comingSoon', 
+    }),
+    defineField({ 
+      name: 'cScontent', 
+      title: 'Comonig Soon Content', 
+      type: 'text', 
+      group: 'comingSoon', 
+    }),
+    defineField({
+      name: 'cSimages',
+      title: 'Coming Soon Cursor Images',
+      type: 'array',
+      of: [{ type: 'image' }],
+      group: 'comingSoon'
+    }),
   ],
+  
   preview: {
     prepare: () => ({title: 'Settings'}),
   },

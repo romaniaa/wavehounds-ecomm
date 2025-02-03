@@ -11,6 +11,8 @@ import {FramerMotion} from './FramerMotion';
 import {Header} from './Header';
 import {NavigationProgressBar} from './NavigationProgressBar';
 
+import ComingSoon from './ComingSoon'
+
 export type LayoutProps = {
   children?: React.ReactNode;
 };
@@ -27,13 +29,14 @@ export function Layout({children = null}: LayoutProps) {
       storefrontToken={env.PUBLIC_STOREFRONT_API_TOKEN}
     >
       <FramerMotion>
-        <NavigationProgressBar />
+        <ComingSoon/>
+        {/* <NavigationProgressBar />
         <AnnouncementBar />
         <Header />
         <main className="flex min-h-[90vh] grow flex-col gap-y-[calc(var(--space-between-template-sections)*.75)] sm:gap-y-[--space-between-template-sections]">
           {children}
         </main>
-        <Footer />
+        <Footer /> */}
         <TailwindIndicator />
         {sanityPreviewMode ? <VisualEditing /> : <TogglePreviewMode />}
       </FramerMotion>
