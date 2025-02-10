@@ -8,7 +8,7 @@ const CustomCursor: React.FC<Props> = ({ isHovering }) => {
 
   return (
     <m.div
-      className="fixed pointer-events-none w-6 h-6 bg-white rounded-full mix-blend-difference "
+      className="fixed pointer-events-none w-6 h-6 bg-white rounded-full mix-blend-difference hidden md:block"
       // animate={{ x, y,}}
       // transition={{ type: 'spring', stiffness: 200 }}
       style={{

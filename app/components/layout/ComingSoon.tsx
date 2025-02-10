@@ -6,6 +6,7 @@ import CustomCursor from '../../components/ui/CustomCursor';
 import { useRootLoaderData } from '~/root';
 
 import WhLogo from '../icons/WhLogo';
+import SecureMailto from '../sections/SecureMailto';
 
 const ComingSoon: React.FC = () => {
   const { x, y } = useMousePosition();
@@ -18,7 +19,12 @@ const ComingSoon: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setImageIndex((prevIndex) => (prevIndex + 1) % settings?.cSimages?.length);
+      setImageIndex((prevIndex) => {
+        if (settings?.cSimages?.length) {
+          return (prevIndex + 1) % settings.cSimages.length;
+        }
+        return prevIndex;
+      });
     }, 500);
 
     return () => clearInterval(interval);
@@ -30,7 +36,7 @@ const ComingSoon: React.FC = () => {
       <h1 className="text-8xl font-bold mb-4 text-center md:text-left">{settings?.cStitle}</h1>
       <p className="text-lg text-black max-w-2xl text-center">{settings?.cScontent}</p>
       <div
-        className="absolute h-auto w-full max-w-[550px] max-h-[550px] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition-opacity duration-75"
+        className="absolute h-full w-full max-w-[550px] max-h-[550px] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 transition-opacity duration-75"
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
         >
@@ -51,7 +57,11 @@ const ComingSoon: React.FC = () => {
         ))}
          
       </div>
+      
       <CustomCursor isHovering={hovering} />
+      <div className="mt-3 text-center w-full px-3 z-[999]">
+        <SecureMailto/>
+      </div>
     </div>
   );
 };

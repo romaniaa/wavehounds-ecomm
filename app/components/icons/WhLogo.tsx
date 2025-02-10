@@ -2,7 +2,7 @@ import React from 'react';
 
 const WhLogo: React.FC = () => {
   return(
-    <svg className="z-0 w-full max-w-[300px]" version="1.1" x="0px" y="0px" viewBox="0 0 216 216" xml:space="preserve">
+    <svg className="z-0 w-full max-w-[300px]" version="1.1" x="0px" y="0px" viewBox="0 0 216 216" xmlSpace="preserve">
       <path d="M195.9,130.5c-4.1,7.3-11.5,12.6-20.8,15.2c-3.6,1-7.1,1.4-10.5,1.4c-4.4,0-8.5-0.8-12.4-2.3
         c-8.2-3.3-14.5-10-16.9-18.1c-1.1-3.7,0.9-7.7,4.6-8.9c3.6-1.1,7.5,1,8.6,4.7c1.1,3.9,4.5,7.3,8.7,9c4.1,1.7,9.3,1.8,14.5,0.4
         c5.7-1.5,10.2-4.7,12.4-8.6c2.2-3.8,2.8-9.2,1.8-16.1c-1.7-12.1-6.9-22.8-14.6-30.1C163,69.5,151.9,66,142,67.9
