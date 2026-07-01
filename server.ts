@@ -1,3 +1,11 @@
+// Polyfill for getSetCookie support in older worker environments
+if (typeof Headers !== 'undefined' && !Headers.prototype.getSetCookie) {
+  Headers.prototype.getSetCookie = function() {
+    const assoc = this.get('set-cookie');
+    return assoc ? assoc.split(/[,\n]/).map(c => c.trim()) : [];
+  };
+}
+
 // Virtual entry point for the app
 import type {AppLoadContext} from '@shopify/remix-oxygen';
 

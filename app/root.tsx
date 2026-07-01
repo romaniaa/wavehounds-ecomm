@@ -4,7 +4,6 @@ import type {
   MetaFunction,
   SerializeFrom,
 } from '@shopify/remix-oxygen';
-
 import {
   isRouteErrorResponse,
   Link,
