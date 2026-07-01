@@ -9,6 +9,7 @@ import {ImageBannerSection} from '~/components/sections/ImageBannerSection';
 import {ProductInformationSection} from '~/components/sections/ProductInformationSection';
 import {RelatedProductsSection} from '~/components/sections/RelatedProductsSection';
 import {RichtextSection} from '~/components/sections/RichtextSection';
+import {InstagramFeedSection} from '~/components/sections/InstagramFeedSection';
 
 export const sections: {
   [key: string]: React.FC<any>;
@@ -24,4 +25,5 @@ export const sections: {
   relatedProductsSection: RelatedProductsSection,
   richtextSection: RichtextSection,
   socialLinksOnly: FooterSocialLinksOnly,
+  instagramFeedSection: InstagramFeedSection,
 };

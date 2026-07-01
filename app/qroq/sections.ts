@@ -296,6 +296,21 @@ export const COLLECTION_PRODUCT_GRID_SECTION_FRAGMENT = {
 
 /*
 |--------------------------------------------------------------------------
+| Instagram Feed Section Fragment
+|--------------------------------------------------------------------------
+*/
+export const INSTAGRAM_FEED_SECTION_FRAGMENT = {
+  _key: q.string().nullable(),
+  _type: q.literal('instagramFeed'),
+  title: q.string().nullable(),
+  initialAccessToken: q.string().nullable(),
+  numImages: q.number().nullable(),
+  numColumns: q.number().nullable(),
+  settings: SECTION_SETTINGS_FRAGMENT,
+} satisfies Selection;
+
+/*
+|--------------------------------------------------------------------------
 | List of sections
 |--------------------------------------------------------------------------
 */
@@ -306,6 +321,7 @@ export const SECTIONS_LIST_SELECTION = {
   "_type == 'featuredProductSection'": FEATURED_PRODUCT_SECTION_FRAGMENT,
   "_type == 'imageBannerSection'": IMAGE_BANNER_SECTION_FRAGMENT,
   "_type == 'richtextSection'": RICHTEXT_SECTION_FRAGMENT,
+  "_type == 'instagramFeedSection'": INSTAGRAM_FEED_SECTION_FRAGMENT,
 };
 
 export const SECTIONS_FRAGMENT = q('sections[]', {isArray: true})

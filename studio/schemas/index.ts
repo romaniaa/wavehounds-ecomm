@@ -5,6 +5,7 @@ import page from './documents/page';
 import settings from './singletons/settings';
 import themeContent from './singletons/themeContent';
 import imageBannerSection from './objects/sections/imageBannerSection';
+import instagramFeedSection from './objects/sections/instagramFeedSection';
 import home from './singletons/home';
 import collection from './documents/collection';
 import product from './documents/product';
@@ -60,6 +61,7 @@ const documents = [
 ];
 const sections = [
   imageBannerSection,
+  instagramFeedSection,
   featuredCollection,
   featuredProductSection,
   collectionListSection,

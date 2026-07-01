@@ -19,6 +19,9 @@ const globalSections = [
   {
     type: 'richtextSection',
   },
+  {
+    type: 'instagramFeedSection',
+  },
 ];
 
 const pdpSections = [

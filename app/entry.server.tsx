@@ -61,7 +61,7 @@ export const createCspHeaders = () => {
     fontSrc: ['*.sanity.io', "'self'", "https://use.typekit.net", 'localhost:*'],
     frameAncestors: ['localhost:*', '*.sanity.studio'],
     frameSrc: ["'self'"],
-    imgSrc: ['*.sanity.io', 'https://cdn.shopify.com', "'self'", 'localhost:*'],
+    imgSrc: ['*.sanity.io', 'https://cdn.shopify.com', "'self'", 'https://scontent-sea1-1.cdninstagram.com', 'localhost:*'],
     scriptSrc: ["'self'", 'localhost:*', 'https://cdn.shopify.com'],
     styleSrc: ["'self'", "'unsafe-inline'", 'https://use.typekit.net', 'https://p.typekit.net', 'localhost:*'], 
   };
