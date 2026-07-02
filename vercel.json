@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
-    "server.ts": {
+    "app/root.tsx": {
       "maxDuration": 15,
       "memory": 1024
     }
