@@ -216,61 +216,100 @@ export default function App() {
   );
 }
 
+// export function ErrorBoundary() {
+//   const nonce = useNonce();
+//   const routeError = useRouteError();
+//   const {locale} = useRootLoaderData();
+//   const isRouteError = isRouteErrorResponse(routeError);
+//   const {themeContent} = useSanityThemeContent();
+//   const errorStatus = isRouteError ? routeError.status : 500;
+//   const collectionsPath = useLocalePath({path: '/collections'});
+//   const navigate = useNavigate();
+
+//   let title = themeContent?.error?.serverError;
+//   let pageType = 'page';
+
+//   if (isRouteError) {
+//     title = themeContent?.error?.pageNotFound;
+//     if (errorStatus === 404) pageType = routeError.data || pageType;
+//   }
+
+//   return (
+//     <html lang={locale.language.toLowerCase()}>
+//       <head>
+//         <meta charSet="utf-8" />
+//         <meta content="width=device-width,initial-scale=1" name="viewport" />
+//         <Meta />
+//         <Fonts />
+//         <Links />
+//         <CssVars />
+//       </head>
+//       <body className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
+//         <Layout>
+//           <section>
+//             <div className="container flex flex-col items-center justify-center py-20 text-center">
+//               <span>{errorStatus}</span>
+//               <h1 className="mt-5">{title}</h1>
+//               {errorStatus === 404 ? (
+//                 <Button asChild className="mt-6" variant="secondary">
+//                   <Link to={collectionsPath}>
+//                     {themeContent?.cart?.continueShopping}
+//                   </Link>
+//                 </Button>
+//               ) : (
+//                 <Button
+//                   className="mt-6"
+//                   onClick={() => navigate(0)}
+//                   variant="secondary"
+//                 >
+//                   {themeContent?.error?.reloadPage}
+//                 </Button>
+//               )}
+//             </div>
+//           </section>
+//         </Layout>
+//         <ScrollRestoration nonce={nonce} />
+//         <Scripts nonce={nonce} />
+//         <LiveReload nonce={nonce} />
+//       </body>
+//     </html>
+//   );
+// }
+
 export function ErrorBoundary() {
-  const nonce = useNonce();
   const routeError = useRouteError();
-  const {locale} = useRootLoaderData();
   const isRouteError = isRouteErrorResponse(routeError);
-  const {themeContent} = useSanityThemeContent();
   const errorStatus = isRouteError ? routeError.status : 500;
-  const collectionsPath = useLocalePath({path: '/collections'});
-  const navigate = useNavigate();
 
-  let title = themeContent?.error?.serverError;
-  let pageType = 'page';
-
-  if (isRouteError) {
-    title = themeContent?.error?.pageNotFound;
-    if (errorStatus === 404) pageType = routeError.data || pageType;
-  }
-
+  // Give the browser a lightweight, vanilla shell with NO heavy sub-components
   return (
-    <html lang={locale.language.toLowerCase()}>
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <Meta />
-        <Fonts />
-        <Links />
-        <CssVars />
+        <title>Something went wrong</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
       </head>
-      <body className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
-        <Layout>
-          <section>
-            <div className="container flex flex-col items-center justify-center py-20 text-center">
-              <span>{errorStatus}</span>
-              <h1 className="mt-5">{title}</h1>
-              {errorStatus === 404 ? (
-                <Button asChild className="mt-6" variant="secondary">
-                  <Link to={collectionsPath}>
-                    {themeContent?.cart?.continueShopping}
-                  </Link>
-                </Button>
-              ) : (
-                <Button
-                  className="mt-6"
-                  onClick={() => navigate(0)}
-                  variant="secondary"
-                >
-                  {themeContent?.error?.reloadPage}
-                </Button>
-              )}
-            </div>
-          </section>
-        </Layout>
-        <ScrollRestoration nonce={nonce} />
-        <Scripts nonce={nonce} />
-        <LiveReload nonce={nonce} />
+      <body className="flex min-h-screen flex-col items-center justify-center bg-gray-50 text-gray-900 font-sans p-6 text-center">
+        <main className="max-w-md bg-white rounded-xl shadow-md p-8 border border-gray-100">
+          <span className="text-sm font-semibold uppercase tracking-wider text-red-500 bg-red-50 px-3 py-1 rounded-full">
+            Error {errorStatus}
+          </span>
+          <h1 className="mt-4 text-2xl font-bold tracking-tight">
+            {isRouteError ? 'Page Not Found' : 'An unexpected error occurred'}
+          </h1>
+          <p className="mt-2 text-sm text-gray-500">
+            We are having trouble loading this page right now.
+          </p>
+          <div className="mt-6">
+            <a 
+              href="/" 
+              className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-black rounded-lg hover:bg-gray-800 transition"
+            >
+              Back to Homepage
+            </a>
+          </div>
+        </main>
       </body>
     </html>
   );
