@@ -1,10 +1,6 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState} from 'react';
 import type {TypeFromSelection} from 'groqd';
-
-import {useSection} from '../CmsSection';
 import type {INSTAGRAM_FEED_SECTION_FRAGMENT} from '~/qroq/sections';
-import { SanityImage } from '../sanity/SanityImage';
-
 import {cn} from '~/lib/utils';
 
 type InstagramFeedSectionProps = TypeFromSelection<
@@ -20,7 +16,8 @@ type InstagramPost = {
 export function InstagramFeedSection({
   data,
 }: {data: InstagramFeedSectionProps}) {
-  const {title, initialAccessToken, numImages, numColumns} = data;
+  // Note: We no longer need initialAccessToken from Sanity!
+  const {title, numColumns} = data;
 
   const [posts, setPosts] = useState<InstagramPost[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -28,13 +25,19 @@ export function InstagramFeedSection({
   useEffect(() => {
     const fetchInstagramPosts = async () => {
       try {
-        const response = await fetch(
-          `https://graph.instagram.com/me/media?fields=id,media_url,permalink&access_token=${initialAccessToken}&limit=${numImages}`,
-        );
+        // Fetch from your local Hydrogen proxy endpoint
+        const response = await fetch('/api/instagram');
+        
         if (!response.ok) {
-          throw new Error('Failed to fetch Instagram posts.');
+          throw new Error('Failed to fetch Instagram posts from server.');
         }
+        
         const json = await response.json();
+        
+        if (json.error) {
+          throw new Error(json.error);
+        }
+        
         setPosts(json.data || []);
       } catch (err) {
         setError((err as Error).message);
@@ -42,7 +45,7 @@ export function InstagramFeedSection({
     };
 
     fetchInstagramPosts();
-  }, [initialAccessToken, numImages]);
+  }, []);
 
   if (error) {
     return <ErrorMessage message={`Error: ${error}`} />;
@@ -70,18 +73,12 @@ export function InstagramFeedSection({
               className="block"
             >
               <img
-                  src={post.media_url}
-                  alt={'Instagram image from @wavehounds'}
-                  width="500"
-                  height="500"
-                  loading="lazy" // Optimize loading for performance
-                />
-               {/* <SanityImage
-                  aspectRatio="1/1"
-                  data={post.media_url}
-                  decoding="sync"
-                  sizes="25vw"
-                /> */}
+                src={post.media_url}
+                alt={'Instagram image from @wavehounds'}
+                width="500"
+                height="500"
+                loading="lazy"
+              />
             </a>
           ))}
         </div>

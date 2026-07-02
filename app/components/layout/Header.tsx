@@ -42,7 +42,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link className="group" prefetch="intent" to={homePath}>
             <Logo
-              className="h-auto w-[var(--logoWidth)]"
+              className="h-auto max-w-[var(--logoWidth)]"
               sizes={logoWidth}
               style={
                 {

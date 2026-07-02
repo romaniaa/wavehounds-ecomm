@@ -30,6 +30,7 @@ declare global {
    * Declare expected Env parameter in fetch handler.
    */
   interface Env {
+    INSTAGRAM_ACCESS_TOKEN: any;
     NODE_ENV: 'development' | 'production';
     PRIVATE_STOREFRONT_API_TOKEN: string;
     PUBLIC_STORE_DOMAIN: string;

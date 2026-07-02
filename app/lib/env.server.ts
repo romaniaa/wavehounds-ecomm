@@ -63,6 +63,10 @@ export function envVariables(contextEnv: Env) {
       env.SANITY_STUDIO_USE_PREVIEW_MODE || 'false',
     SESSION_SECRET: env.SESSION_SECRET || '',
     SHOP_ID: checkRequiredEnv(env.SHOP_ID, 'SHOP_ID'),
+    INSTAGRAM_ACCESS_TOKEN: checkRequiredEnv(
+      env.INSTAGRAM_ACCESS_TOKEN,
+      'INSTAGRAM_ACCESS_TOKEN',
+    ),
   };
 }
 

@@ -1,6 +1,7 @@
 import type {PortableTextComponents} from '@portabletext/react';
 import type {PortableTextBlock} from '@portabletext/types';
 import type {TypeFromSelection} from 'groqd';
+import type {ReactNode} from 'react';
 
 import {PortableText} from '@portabletext/react';
 import {useMemo} from 'react';
@@ -61,6 +62,11 @@ export function ImageBannerSection(
 function BannerRichtext(props: {value?: null | PortableTextBlock[]}) {
   const components = useMemo(
     () => ({
+      block: {
+        massive: ({children}: {children: ReactNode}) => (
+          <p className="text-5xl leading-none lg:text-[170px] font-heading ">{children}</p>
+        ),
+      },
       types: {
         button: (props: {value: ButtonBlockProps}) => (
           <ButtonBlock {...props.value} />
