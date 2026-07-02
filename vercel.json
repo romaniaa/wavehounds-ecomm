@@ -1,13 +1,14 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/**/*": {
-      "runtime": "nodejs"
+      "maxDuration": 15
     },
     "app/**/*": {
-      "runtime": "nodejs"
+      "maxDuration": 15
     },
     "server.ts": {
-      "runtime": "nodejs"
+      "maxDuration": 15
     }
   }
 }
