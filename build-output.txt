@@ -1,0 +1,50 @@
+╭─ warning ────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  Unsupported plugins detected: @shopify/plugin-cloudflare                    │
+│                                                                              │
+│  They are already included in the CLI and installing them as custom plugins  │
+│   can cause conflicts. You can fix it by running:                            │
+│    - shopify plugins remove @shopify/plugin-cloudflare                       │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+🏗️  Building in production mode...
+╭─ error ──────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  Cannot find module 'vite'                                                   │
+│  Require stack:                                                              │
+│  - /Users/romanhermens/Repositories/wavehounds-ecomm/node_modules/.pnpm/@sh  │
+│  opify+cli-hydrogen@9.0.11_@graphql-codegen+cli@5.0.7_@types+node@26.1.0_gr  │
+│  aphql@16.14.2_ty_cepclvokvoi2mvz6agkibb2oni/node_modules/@shopify/cli-hydr  │
+│  ogen/dist/lib/import-utils.js                                               │
+│                                                                              │
+│  To investigate the issue, examine this stack trace:                         │
+│    at 2_ty_cepclvokvoi2mvz6agkibb2oni/node_modules/                          │
+│    at _resolveFilename (node:internal/modules/cjs/loader:1517)               │
+│    at wrapResolveFilename (node:internal/modules/cjs/loader:1071)            │
+│    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122)         │
+│    at resolve (node:internal/modules/helpers:171)                            │
+│    at importVite (.pnpm/@shopify+cli-hydrogen@9.0.11_@graphql-codegen+cli@5  │
+│    .0.7_@types+node@26.1.0_graphql@16.14.2_ty_cepclvokvoi2mvz6agkibb2oni/no  │
+│    de_modules/@shopify/cli-hydrogen/dist/lib/import-utils.js:8)              │
+│      const vitePath = require2.resolve(                                      │
+│    at getRemixConfig (.pnpm/@shopify+cli-hydrogen@9.0.11_@graphql-codegen+c  │
+│    li@5.0.7_@types+node@26.1.0_graphql@16.14.2_ty_cepclvokvoi2mvz6agkibb2on  │
+│    i/node_modules/@shopify/cli-hydrogen/dist/lib/remix-config.js:69)         │
+│      const vite = await importVite(root);                                    │
+│    at all                                                                    │
+│    at runClassicCompilerBuild                                                │
+│    (.pnpm/@shopify+cli-hydrogen@9.0.11_@graphql-codegen+cli@5.0.7_@types+no  │
+│    de@26.1.0_graphql@16.14.2_ty_cepclvokvoi2mvz6agkibb2oni/node_modules/@sh  │
+│    opify/cli-hydrogen/dist/lib/classic-compiler/build.js:41)                 │
+│      const [remixConfig, [{ build }, { logThrown }, { createFileWatchCache   │
+│      }]] = await Promise.all([                                               │
+│    at run (.pnpm/@shopify+cli-hydrogen@9.0.11_@graphql-codegen+cli@5.0.7_@t  │
+│    ypes+node@26.1.0_graphql@16.14.2_ty_cepclvokvoi2mvz6agkibb2oni/node_modu  │
+│    les/@shopify/cli-hydrogen/dist/commands/hydrogen/build.js:55)             │
+│      const result = await isViteProject(directory) ? await                   │
+│      runBuild(buildParams) : await runClassicCompilerBuild(buildParams);     │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+

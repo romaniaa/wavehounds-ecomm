@@ -6,12 +6,12 @@ module.exports = {
   postcss: true,
   
   // 1. Tell the server compiler where to find the physical files
-  serverNodeBuiltinsPolyfill: {
-    modules: {
-      crypto: 'crypto-browserify',
-      stream: 'stream-browserify',
-    },
-  },
+  // serverNodeBuiltinsPolyfill: {
+  //   modules: {
+  //     crypto: 'crypto-browserify',
+  //     stream: 'stream-browserify',
+  //   },
+  // },
 
   // 2. Tell the browser compiler where to find the physical files
   browserNodeBuiltinsPolyfill: {
@@ -27,7 +27,12 @@ module.exports = {
   publicPath: (process.env.HYDROGEN_ASSET_BASE_URL ?? '/') + 'build/',
   server: './server.ts',
   serverBuildPath: 'dist/worker/index.js',
-  serverConditions: ['worker', process.env.NODE_ENV],
+  serverConditions: ['worker', 'browser', process.env.NODE_ENV],
+  serverNodeBuiltinsPolyfill: {
+    modules: {
+      stream: 'stream-browserify',
+    },
+  },
   serverDependenciesToBundle: 'all',
   serverMainFields: ['browser', 'module', 'main'],
   serverMinify: process.env.NODE_ENV === 'production',
