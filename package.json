@@ -108,11 +108,5 @@
   "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": "24.x"
-  },
-  "pnpm": {
-    "overrides": {
-      "uuid": "npm:uuid@^13.0.2",
-      "nanoid": "npm:nanoid@^5.1.0"
-    }
   }
 }

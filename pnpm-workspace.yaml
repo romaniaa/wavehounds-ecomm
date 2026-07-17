@@ -1,0 +1,10 @@
+packages:
+  - '.'
+  - 'studio'
+
+overrides:
+  uuid: "npm:uuid@^13.0.2"
+  nanoid: "npm:nanoid@^5.1.0"
+
+allowBuilds:
+  esbuild: true
